@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Main from './views/Main';
+import Calendar from './components/Calendar'
 
 function App() {
   return (
     <div>
-      <Main />
+      <Calendar />
     </div>
   );
 }
