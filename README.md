@@ -12,7 +12,7 @@ Submitting the form modal does nothing at the moment, further development can be
 
 #### Installation
 1. clone or fork the repo
-  ```https://github.com/sherlineau/eCalendar```
+  ```git clone https://github.com/sherlineau/eCalendar```
 2. using your terminal, change directory into the new project folder
 3. run ```npm i ``` to install project dependencies
 4. start the project using ```npm start```
