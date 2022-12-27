@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/eCalendar/static/css/main.f17c734d.css",
+    "main.css": "/eCalendar/static/css/main.63ab4034.css",
     "main.js": "/eCalendar/static/js/main.97d9cc41.js",
     "static/js/787.f92f8098.chunk.js": "/eCalendar/static/js/787.f92f8098.chunk.js",
     "static/media/spring.webp": "/eCalendar/static/media/spring.76440f3c50c5f51f007d.webp",
     "static/media/fall.jpeg": "/eCalendar/static/media/fall.621f242dc3fe77e0f7df.jpeg",
-    "static/media/winter.webp": "/eCalendar/static/media/winter.fba36e3c2120382d05bb.webp",
     "static/media/summer.jpg": "/eCalendar/static/media/summer.a7fa8812edfa48b98c58.jpg",
+    "static/media/winter.webp": "/eCalendar/static/media/winter.0083d06e267973e43643.webp",
     "static/media/logo.svg": "/eCalendar/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/eCalendar/index.html",
-    "main.f17c734d.css.map": "/eCalendar/static/css/main.f17c734d.css.map",
+    "main.63ab4034.css.map": "/eCalendar/static/css/main.63ab4034.css.map",
     "main.97d9cc41.js.map": "/eCalendar/static/js/main.97d9cc41.js.map",
     "787.f92f8098.chunk.js.map": "/eCalendar/static/js/787.f92f8098.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f17c734d.css",
+    "static/css/main.63ab4034.css",
     "static/js/main.97d9cc41.js"
   ]
 }
