@@ -5,17 +5,8 @@ import FormModal from "./FormModal";
 const DayEvents = (props) => {
   const [showModal, setShowModal] = useState(false);
   
-  const { month, day, currCalendarMonth, heading } = props;
+  const { month, day, currCalendarMonth, heading, WeekDays } = props;
 
-  const WeekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
   if (!currCalendarMonth) return null;
   const specificDate = currCalendarMonth.find((d) => d.day === day);

@@ -91,7 +91,9 @@ const Calendar = () => {
   const [year, setYear] = useState(date.getFullYear());
   const [month, setMonth] = useState(date.getMonth());
   const [calendar, setCalendar] = useState(getCalendar(year, month + 1));
-  const heading = ['January','February','March','April','May','June','July','August','September','October','November','December']
+  const heading = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+  const WeekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   const { prevCalendarMonth, currCalendarMonth, nextCalendarMonth } = calendar;
 
@@ -133,17 +135,19 @@ const Calendar = () => {
   return (
     <div className="section">
       <div className="section-left">
-        <CalendarHeader month={month} year={year} heading={heading}/>
+        <CalendarHeader month={month} year={year} heading={heading} />
         <div className="content">
-          <AiOutlineArrowLeft onClick={(e) => pastMonth()} className="btn" />
+          <div className="calendar-buttons">
+            <AiOutlineArrowLeft onClick={(e) => pastMonth()} className="btn" />
+          </div>
           <div className="calendar">
-            <div className="weekday">SUN</div>
-            <div className="weekday">MON</div>
-            <div className="weekday">TUE</div>
-            <div className="weekday">WED</div>
-            <div className="weekday">THU</div>
-            <div className="weekday">FRI</div>
-            <div className="weekday">SAT</div>
+            {WeekDays.map((w, i) => {
+              return (
+                <div className="weekday" key={i}>
+                  {w.substring(0, 3).toUpperCase()}
+                </div>
+              );
+            })}
             {prevCalendarMonth.map((day, index) => {
               return (
                 <div className="square greyed-out" key={index}>
@@ -179,14 +183,17 @@ const Calendar = () => {
               );
             })}
           </div>
-          <AiOutlineArrowRight onClick={(e) => nextMonth()} className="btn" />
+          <div className="calendar-buttons">
+            <AiOutlineArrowRight onClick={(e) => nextMonth()} className="btn" />
+          </div>
         </div>
       </div>
       <DayEvents
         month={month}
         day={day}
-        heading= {heading}
         currCalendarMonth={calendar.currCalendarMonth}
+        heading={heading}
+        WeekDays={WeekDays}
       />
     </div>
   );
