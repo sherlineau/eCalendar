@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import FormModal from "./FormModal";
 
 const DayEvents = (props) => {
-  const [ showModal , setShowModal ] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  
   const { month, day, currCalendarMonth } = props;
   const heading = [
     "JANUARY",
@@ -34,25 +35,52 @@ const DayEvents = (props) => {
   const specificDate = currCalendarMonth.find((d) => d.day === day);
 
   let season = "";
-  if (month === 2 || month === 3 || month === 4) {
-    // from march to may
-    season = "spring";
-  }
-  // from june to august
-  else if (month === 5 || month === 6 || month === 7) {
-    season = "summer";
-  }
-  // from sept to nov
-  else if (month === 8 || month === 9 || month === 10) {
-    season = "fall";
-  } else {
-    season = "winter";
+
+  switch (month) {
+    case 2: {
+      season = "spring";
+      break;
+    }
+    case 3: {
+      season = "spring";
+      break;
+    }
+    case 4: {
+      season = "spring";
+      break;
+    }
+    case 5: {
+      season = "summer";
+      break;
+    }
+    case 6: {
+      season = "summer";
+      break;
+    }
+    case 7: {
+      season = "summer";
+      break;
+    }
+    case 8: {
+      season = "fall";
+      break;
+    }
+    case 9: {
+      season = "fall";
+      break;
+    }
+    case 10: {
+      season = "fall";
+      break;
+    }
+    default:
+      season = "winter";
   }
 
-  const closeModal = ( modal ) => {
+  const closeModal = (modal) => {
     console.log(modal);
-    setShowModal(false)
-  }
+    setShowModal(false);
+  };
 
   return (
     <div className={`section-right ${season}`}>
@@ -64,29 +92,36 @@ const DayEvents = (props) => {
         <div className="line"></div>
         <div className="event-list">
           <table>
-            {specificDate.events.length === 0
-              ?
+            {specificDate.events.length === 0 ? (
               <thead>
                 <tr>
                   <th>No Appointments</th>
                 </tr>
               </thead>
-              : specificDate.events.map((i, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{i.start}</td>
-                      <td>{i.description}</td>
-                    </tr>
-                  );
-                })}
+            ) : (
+              specificDate.events.map((i, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{i.start}</td>
+                    <td>{i.description}</td>
+                  </tr>
+                );
+              })
+            )}
           </table>
         </div>
       </div>
       <div className="event-bottom">
-        <AiOutlinePlus className="plus-icon" onClick={e=>setShowModal(!showModal)} />
-        <div className={`modal ${showModal ? "show-modal":""}`}>
+        <AiOutlinePlus
+          className="plus-icon"
+          onClick={(e) => setShowModal(!showModal)}
+        />
+        <div className={`modal ${showModal ? "show-modal" : ""}`}>
           <FormModal onSubmitProp={closeModal} />
-          <AiOutlineMinus onClick={e=>setShowModal(!showModal)} className="plus-icon"/>
+          <AiOutlineMinus
+            onClick={(e) => setShowModal(!showModal)}
+            className="plus-icon"
+          />
         </div>
       </div>
     </div>
