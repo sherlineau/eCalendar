@@ -5,21 +5,7 @@ import FormModal from "./FormModal";
 const DayEvents = (props) => {
   const [showModal, setShowModal] = useState(false);
   
-  const { month, day, currCalendarMonth } = props;
-  const heading = [
-    "JANUARY",
-    "FEBRUARY",
-    "MARCH",
-    "APRIL",
-    "MAY",
-    "JUNE",
-    "JULY",
-    "AUGUST",
-    "SEPTEMBER",
-    "OCTOBER",
-    "NOVEMBER",
-    "DECEMBER",
-  ];
+  const { month, day, currCalendarMonth, heading } = props;
 
   const WeekDays = [
     "Sunday",

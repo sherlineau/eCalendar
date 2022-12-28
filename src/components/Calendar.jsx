@@ -86,10 +86,12 @@ const Calendar = () => {
   const today = date;
 
   // get todays date, year, and month
+  // variables to send to functions and other components
   const [day, setDay] = useState(date.getDate());
   const [year, setYear] = useState(date.getFullYear());
   const [month, setMonth] = useState(date.getMonth());
   const [calendar, setCalendar] = useState(getCalendar(year, month + 1));
+  const heading = ['January','February','March','April','May','June','July','August','September','October','November','December']
 
   const { prevCalendarMonth, currCalendarMonth, nextCalendarMonth } = calendar;
 
@@ -131,7 +133,7 @@ const Calendar = () => {
   return (
     <div className="section">
       <div className="section-left">
-        <CalendarHeader month={month} year={year} />
+        <CalendarHeader month={month} year={year} heading={heading}/>
         <div className="content">
           <AiOutlineArrowLeft onClick={(e) => pastMonth()} className="btn" />
           <div className="calendar">
@@ -183,6 +185,7 @@ const Calendar = () => {
       <DayEvents
         month={month}
         day={day}
+        heading= {heading}
         currCalendarMonth={calendar.currCalendarMonth}
       />
     </div>
