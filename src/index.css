@@ -19,6 +19,31 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+}
+
 .section {
   display: flex;
   justify-content: center;
@@ -26,16 +51,40 @@ a {
   margin: 0 auto;
   height: 89vh;
   overflow: hidden;
+  /* max-width: 1200px; */
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .section {
+    display: block;
+    width: 100vw;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 915px) and (orientation: landscape){
+  .section {
+    display: block;
+    width: 100vw;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 1180px) and (orientation: portrait) {
+  .section {
+    display: block;
+    width: 100%;
+    height: 89vh;
+  }
 }
 
 .section-left {
   padding: 1.5rem;
-  min-width: 60vw;
+  width: 60%;
 }
 
 .content {
   display: flex;
-  width: 100%;
   align-items: center;
 }
 
@@ -59,7 +108,8 @@ a {
   padding: 1rem;
 }
 
-.calendar-header h1, h2 {
+.calendar-header h1,
+h2 {
   margin-bottom: 1rem;
 }
 
@@ -85,22 +135,110 @@ a {
   font-size: 1.5rem;
 }
 
+.calendar-buttons {
+  width: 5rem;
+  text-align: center;
+}
+
 .btn {
   font-size: 2.5rem;
   background-color: none;
   border: none;
   border-radius: 10px;
+  width: 3rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .section-left {
+    padding: 0;
+    width: 100%;
+  }
+
+  .calendar-header h1,
+  p,
+  h2 {
+    margin-bottom: 0rem;
+  }
+
+  .calendar {
+    height: 35vh;
+    width: 75%;
+  }
+
+  .square {
+    padding: 0.5rem;
+  }
+  .day-number {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 1180px) and (orientation: portrait) {
+  .section-left {
+    padding: 0;
+    width: 100%;
+  }
+
+  .calendar-header h1,
+  p,
+  h2 {
+    margin-bottom: 0rem;
+  }
+
+  .calendar {
+    height: 35vh;
+    width: 100%;
+  }
+
+  .square {
+    padding: 0.5rem;
+  }
+  .day-number {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 915px) and (orientation: landscape){
+  .section-left {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .calendar-header h1,
+  p,
+  h2 {
+    margin-bottom: 0rem;
+  }
+
+  .calendar {
+    height: 100%;
+    width: 100%;
+  }
+
+  .square {
+    padding: 0.5rem;
+  }
+  .day-number {
+    font-size: 1.25rem;
+  }
 }
 
 .section-right {
-  width: 100%;
+  width: 40%;
   padding: 2rem;
   text-align: left;
 }
 
 .appointment-header {
-  font-size: 1.5rem;
   color: white black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appointment-header p,
+.appointment-header h1 {
+  margin-bottom: 0;
 }
 
 .winter {
@@ -133,8 +271,8 @@ a {
 
 .events {
   display: flex;
-  height: 65vh;
-  padding: 3rem;
+  height: 80%;
+  padding: 1rem;
   font-size: 2rem;
   justify-content: space-between;
 }
@@ -150,24 +288,95 @@ a {
 .event-list {
   background-color: rgba(0, 0, 0, 0.616);
   padding: 3rem;
-  font-size: 2rem;
-  border-radius: 2%;
+  font-size: 1.5rem;
+  border-radius: 5px;
   color: white;
   width: 100%;
+}
+
+.event-list td {
+  padding-right: 0.5rem;
 }
 
 .event-bottom {
   text-align: center;
 }
 
-.plus-icon {
+.plus-icon,
+.minus-icon {
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
   background-color: rgba(0, 0, 0, 0.616);
   border-radius: 50%;
 }
 
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .section-right {
+    padding: 0.25rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .appointment-header {
+    padding: 1rem;
+  }
+
+  .plus-icon,
+  .minus-icon {
+    font-size: 2.5rem;
+  }
+
+  .events {
+    min-height: 30vh;
+  }
+
+  .line {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 915) and (orientation: landscape){
+  
+}
+
+@media screen and (min-width: 421px) and (max-width: 1180px) and (orientation: portrait) {
+  .section-right {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .appointment-header {
+    padding: 2rem;
+  }
+
+  .plus-icon,
+  .minus-icon {
+    font-size: 3rem;
+  }
+
+  .events {
+    min-height: 100%;
+  }
+}
+
+@media screen and (max-width: 915px) and (orientation: landscape){
+  .section-right {
+    padding: 0;
+    width: 100%;
+  }
+  .appointment-header {
+    padding: 1rem;
+  }
+  
+  .plus-icon,
+  .minus-icon {
+    font-size: 3rem;
+  }
+}
+
 .modal {
+  background-color: #1a4743c5;
   display: none;
   position: fixed;
   width: 100%;
@@ -203,7 +412,8 @@ label {
   grid-column: 1/2;
 }
 
-input, button {
+input,
+button {
   grid-column: 2/3;
 }
 
@@ -227,11 +437,11 @@ input, button {
 
 .social-icon {
   font-size: 1.75rem;
-  color:#26736b;
+  color: #26736b;
 }
 
 .social-icon:hover {
-  color: white
+  color: white;
 }
 
 .footer-link {
@@ -239,4 +449,10 @@ input, button {
   justify-content: space-evenly;
   align-items: center;
   margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1368px) {
+  .footer {
+    height: 150px;
+  }
 }
