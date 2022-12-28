@@ -4,9 +4,8 @@ import FormModal from "./FormModal";
 
 const DayEvents = (props) => {
   const [showModal, setShowModal] = useState(false);
-  
-  const { month, day, currCalendarMonth, heading, WeekDays } = props;
 
+  const { month, day, currCalendarMonth, heading, WeekDays } = props;
 
   if (!currCalendarMonth) return null;
   const specificDate = currCalendarMonth.find((d) => d.day === day);
@@ -62,8 +61,16 @@ const DayEvents = (props) => {
   return (
     <div className={`section-right ${season}`}>
       <div className="appointment-header">
-        <p>{WeekDays[specificDate.date.getDay()]}</p>
-        <h1>{`${heading[month]} ${day}`}</h1>
+        <div className="left">
+          <h2>{WeekDays[specificDate.date.getDay()]}</h2>
+          <h1>{`${heading[month]} ${day}`}</h1>
+        </div>
+        <div className="right">
+          <AiOutlinePlus
+            className="plus-icon"
+            onClick={(e) => setShowModal(!showModal)}
+          />
+        </div>
       </div>
       <div className="events">
         <div className="line"></div>
@@ -88,18 +95,12 @@ const DayEvents = (props) => {
           </table>
         </div>
       </div>
-      <div className="event-bottom">
-        <AiOutlinePlus
-          className="plus-icon"
+      <div className={`modal ${showModal ? "show-modal" : ""}`}>
+        <FormModal onSubmitProp={closeModal} />
+        <AiOutlineMinus
           onClick={(e) => setShowModal(!showModal)}
+          className="minus-icon"
         />
-        <div className={`modal ${showModal ? "show-modal" : ""}`}>
-          <FormModal onSubmitProp={closeModal} />
-          <AiOutlineMinus
-            onClick={(e) => setShowModal(!showModal)}
-            className="plus-icon"
-          />
-        </div>
       </div>
     </div>
   );
